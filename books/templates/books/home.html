@@ -1,0 +1,15 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}Bookstore Home{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'books/css/books-home.css' %}">
+{% endblock %}
+
+{% block content %}
+    <h1>Welcome to our Books App</h1>
+    <p>
+        <a href="{% url 'books:list' %}" class="btn">Enter Books List</a>
+    </p>
+{% endblock %}

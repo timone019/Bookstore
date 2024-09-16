@@ -1,0 +1,138 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;600&display=swap');
+
+/* General Styles */
+body {
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: #333;
+    font-size: 2em; /* Increase font size */
+}
+
+input[type="text"], input[type="password"] {
+    padding: 15px; /* Increase padding */
+    margin-bottom: 15px; /* Increase margin */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1.1em; /* Increase font size */
+}
+
+button {
+    padding: 15px; /* Increase padding */
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%; /* Adjust button width */
+    max-width: 250px; /* Increase max width */
+    align-self: center; /* Center button */
+    font-size: 1.2em; /* Increase font size */
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+a {
+    color: #007BFF;
+    text-decoration: none;
+    margin-top: 15px; /* Increase margin */
+    display: inline-block;
+    font-size: 1.1em; /* Increase font size */
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+header {
+    background-color: #333;
+    padding: 15px 0;
+    text-align: right;
+    padding-right: 20px;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .nav-link {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1.2em; /* Increase font size */
+    transition: color 0.3s ease;
+}
+
+header .nav-link:hover {
+    color: #007BFF;
+}
+
+header .btn {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.2em; /* Increase font size */
+    transition: background-color 0.3s ease;
+}
+
+header .btn:hover {
+    background-color: #0056b3;
+}
+
+main {
+    padding: 30px; /* Increase padding */
+}
+
+img {
+    display: block;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer .social-media {
+    margin-top: 10px;
+}
+
+footer .social-link {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 1.2em; /* Increase font size */
+    transition: color 0.3s ease;
+}
+
+footer .social-link:hover {
+    color: #007BFF;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header nav {
+        flex-direction: column;
+    }
+
+    header .nav-link, header .btn {
+        margin: 5px 0;
+    }
+}

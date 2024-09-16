@@ -1,0 +1,18 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}Bookstore Home{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'sales/css/sales-home.css' %}">
+{% endblock %}
+
+{% block extra_js %}
+    <script src="{% static 'sales/js/home.js' %}" defer></script>
+{% endblock %}
+
+{% block content %}
+    <h1>Welcome to our Bookstore</h1>
+    <br>
+    <img src="{% static 'sales/images/bookstore.jpg' %}" alt="home" width="900" height="600">
+{% endblock %}

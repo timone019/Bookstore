@@ -1,0 +1,32 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}Books List{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'books/css/books-main.css' %}">
+{% endblock %}
+
+{% block content %}
+
+    <h1>Books' list</h1> <!-- HTML tag for heading -->
+
+    <table border="1" cellpadding="5" cellspacing="5"> <!-- start of table -->
+        <tr> <!-- the <tr> tag adds a new row -->
+            <td>Books' Titles</td> <!-- the <td> tag adds a column -->
+            <td>Books' Images</td>
+        </tr>
+        {% for object in object_list %} <!-- go through each element of books’ list -->
+        <tr>
+            <td>
+                <a href="{{ object.get_absolute_url }}" class="button"> <!-- add links to book names -->
+                    {{ object.name }}
+                </a>
+            </td>
+            <td>
+                <img src="{{ object.pic.url }}" width="150" height="200" />
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
