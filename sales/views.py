@@ -7,8 +7,6 @@ from .models import Sale
 import pandas as pd
 from .utils import get_bookname_from_id, get_chart
 
-#define function-based view - records()
-
 # Create your views here.
 def home(request):
     return render(request, 'sales/home.html')

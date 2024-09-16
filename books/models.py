@@ -23,7 +23,6 @@ class Book(models.Model):
     price = models.FloatField(help_text="in USdollars $", default=0.0)
     genre = models.CharField(max_length=12, choices=genre_choices, default="classic")
     book_type = models.CharField(max_length=12, choices=book_type_choices, default="hardcover")
-
     pic = models.ImageField(upload_to='books', default='default.jpg')
     def __str__(self):
         return str(self.name)

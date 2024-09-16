@@ -1,0 +1,47 @@
+/* Center the content */
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+/* Style the headings */
+h2 {
+    text-align: center;
+    color: #007bff;
+    margin-bottom: 20px;
+}
+
+/* Style the labels and values */
+b {
+    color: #333;
+    font-size: 1.1em;
+}
+
+.detail-item {
+    margin-bottom: 15px;
+    font-size: 1.1em;
+}
+
+/* Style the image */
+img {
+    display: block;
+    margin: 20px auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+}

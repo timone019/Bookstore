@@ -1,0 +1,32 @@
+/* General Styles */
+.login-page {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-page .container {
+    background-color: #e8ebee; /* Change background color */
+    padding: 50px; /* Increase padding */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 500px; /* Increase width */
+    text-align: center;
+    border: 1px solid #ccc; /* Add border */
+    margin-top: -400px; /* Increase margin */
+}
+
+.login-page h1 {
+    margin-bottom: 30px; /* Increase margin */
+}
+
+.login-page form {
+    display: flex;
+    flex-direction: column;
+}
