@@ -14,6 +14,10 @@ from pathlib import Path
 from decouple import config
 import os
 
+# Heroku: Update database configuration from $DATABASE_URL.
+import dj_database_url
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -29,7 +33,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', default='localhost 127.0.0.1').split()
+ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', default='localhost 127.0.0.1').split() + [ 'https://sleepy-island-60497-040803a19474.herokuapp.com/' ]
 
 
 # Application definition
@@ -90,6 +94,12 @@ DATABASES = {
     }
 }
 
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
+
+if not db_from_env:
+    import warnings
+    warnings.warn("No DATABASE_URL environment variable set, and so no databases setup", RuntimeWarning)
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -146,11 +156,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #AUTH
 LOGIN_URL='/login/'
 
-# Heroku: Update database configuration from $DATABASE_URL.
-import dj_database_url
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)
-
-if not db_from_env:
-    import warnings
-    warnings.warn("No DATABASE_URL environment variable set, and so no databases setup", RuntimeWarning)
