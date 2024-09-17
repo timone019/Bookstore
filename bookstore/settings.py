@@ -88,16 +88,10 @@ WSGI_APPLICATION = 'bookstore.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.config(conn_max_age=500)
 }
 
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)
-
-if not db_from_env:
+if not DATABASES['default']:
     import warnings
     warnings.warn("No DATABASE_URL environment variable set, and so no databases setup", RuntimeWarning)
 
