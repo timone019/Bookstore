@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
-from decouple import config
 import os
 
 # Heroku: Update database configuration from $DATABASE_URL.
@@ -32,12 +31,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('BOOKSTORE_SECRET_KEY') or os.environ.get('DJANGO_SECRET_KEY')
 
-# SECRET_KEY = config('BOOKSTORE_SECRET_KEY')
-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', default='localhost 127.0.0.1').split() + [ 'sleepy-island-60497-040803a19474.herokuapp.com' ]
+ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', default='localhost').split() + [ 'sleepy-island-60497-040803a19474.herokuapp.com' ]
 
 
 # Application definition
