@@ -40,9 +40,9 @@ See requirements file for more details
 
 2. Create a virtual environment & activate it:
    ```sh
-
-python -m venv venv
-source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+   python -m venv venv
+   source venv/bin/activate  
+   # On Windows use `venv\Scripts\activate`
     ```
 
 3. Install the required packages:
