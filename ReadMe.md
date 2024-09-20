@@ -19,6 +19,19 @@ The Bookstore application provides comprehensive information on books, sales, an
 
 Link to Live Demo: https://sleepy-island-60497-040803a19474.herokuapp.com/
 
+- **Frontend**: HTML, CSS, JavaScript
+- **Backend**: Django
+- **Database**: PostgreSQL
+- **Deployment**: Heroku
+- **Other**: Gunicorn, Whitenoise
+
+## Screenshots
+
+Here are some screenshots of the application:
+
+## Books List
+![Book Details](media/screenshots/bookstoreScreenshot.png)
+
 ## Installation
 
 ### Prerequisites
