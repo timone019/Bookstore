@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import os
+import warnings
 
 # Heroku: Update database configuration from $DATABASE_URL.
 import dj_database_url
