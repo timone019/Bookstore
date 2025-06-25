@@ -1,42 +1,50 @@
 from django.shortcuts import render, redirect
 # Django authentication libraries
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import authenticate, login, logout, get_user_model
 # Django Form for authentication
 from django.contrib.auth.forms import AuthenticationForm
+from django.contrib import messages
 
 # define a function view called login_view that takes a request from user
 
 
 def login_view(request):
-    # initialize:
-    # error_message to None
+    # Handle demo login
+    if request.method == 'POST' and 'demo_login' in request.POST:
+        User = get_user_model()
+        try:
+            demo_user = User.objects.get(username='demo_user')
+            login(request, demo_user)
+            messages.success(request, 'Logged in as demo user')
+            return redirect('books:home')
+        except User.DoesNotExist:
+            messages.error(request, 'Demo user not found. Please contact support.')
+            return redirect('login')
+    
+    # Initialize form and error message
     error_message = None
-    # form object with username and password fields
     form = AuthenticationForm()
 
-    # when user hits "login" button, then POST request is generated
+    # Handle regular login
     if request.method == 'POST':
-        # read the data sent by the form via POST request
         form = AuthenticationForm(data=request.POST)
-
-        # check if form is valid
         if form.is_valid():                                
-            username=form.cleaned_data.get('username')      #read username
-            password = form.cleaned_data.get('password')    #read password
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return redirect('books:home')
+            else:
+                error_message = 'Invalid credentials'
+        else:
+            error_message = 'Invalid form submission'
 
-            #use Django authenticate function to validate the user
-            user=authenticate(username=username, password=password)
-            if user is not None:                    #if user is authenticated
-            #then use pre-defined Django function to login
-                login(request, user)                
-                return redirect('books:home') #& send the user to desired page
-        else:                                               #in case of error
-            error_message ='Invalid credentials'   #print error message
-
-    #prepare data to send from view to template
-    context ={                                             
-        'form': form,                                 #send the form data
-        'error_message': error_message                     #and the error_message
+    # Prepare context for template
+    context = {
+        'form': form,
+        'error_message': error_message,
+        'show_demo_button': True  # Flag to show demo button in template
     }
     #load the login page using "context" information
     return render(request, 'auth/login.html', context)
